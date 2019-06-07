@@ -9,7 +9,7 @@ export async function searchImages(text) {
       format: "json",
       nojsoncallback: "1",
       api_key: process.env.REACT_APP_FLICKR_API_KEY,
-      extras: "url_m"
+      extras: "url_s"
     };
     Object.keys(params).forEach(key =>
       url.searchParams.append(key, params[key])

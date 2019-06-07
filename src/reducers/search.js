@@ -16,7 +16,9 @@ const search = (state = initialState, action) => {
     case FETCH_SEARCH_LOADING:
       return {
         ...state,
-        isLoading: true
+        photos: [],
+        isLoading: true,
+        errorMessage: null
       };
     case FETCH_SEARCH_SUCCESS:
       return {
