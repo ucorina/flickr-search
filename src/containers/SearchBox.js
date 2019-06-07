@@ -3,7 +3,7 @@ import { searchFlickrImages } from "../actions/search";
 import SearchBox from "../components/SearchBox";
 
 const mapStateToProps = state => ({
-  isLoading: state.search.isLoading,
+  isLoading: state.search.isLoading && state.search.result.lastPageLoaded === 0,
   errorMessage: state.search.errorMessage
 });
 

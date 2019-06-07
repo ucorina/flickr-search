@@ -1,15 +1,19 @@
 const FLICKR_ENDPOINT = "https://api.flickr.com/services/rest";
 
-export async function searchImages(text) {
+const PHOTOS_PER_PAGE = 5;
+
+export async function searchImages(text, page) {
   try {
     const url = new URL(`${FLICKR_ENDPOINT}`);
     const params = {
+      api_key: process.env.REACT_APP_FLICKR_API_KEY,
       method: "flickr.photos.search",
-      text,
       format: "json",
       nojsoncallback: "1",
-      api_key: process.env.REACT_APP_FLICKR_API_KEY,
-      extras: "url_s"
+      extras: "url_s",
+      per_page: PHOTOS_PER_PAGE,
+      page,
+      text
     };
     Object.keys(params).forEach(key =>
       url.searchParams.append(key, params[key])
